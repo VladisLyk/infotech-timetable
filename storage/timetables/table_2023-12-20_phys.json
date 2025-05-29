@@ -1,0 +1,797 @@
+{
+  "date": "2023-12-20",
+  "lessons": {
+    "1": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Вступ до фаху",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вступ до фаху",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Вступ до фаху",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вступ до фаху",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "268",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Корнієнко Семен Вікторович",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "279",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Молекулярна фізика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "136",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "4": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "5": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "6": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

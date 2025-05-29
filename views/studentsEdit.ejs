@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+<div class="modal" name="add-group">
+    <div class="modal-body">
+        <div class="modal-head">
+            <i class="fas fa-plus"></i>
+            Додати групу
+        </div>
+        <div class="modal-content">
+            <div class="input-label">
+                <label for="group-name" class="d-block">Введіть назву групи</label>
+                <input type="text" name="group-name" class="input" placeholder="Назва групи">
+            </div>
+            <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+                <button class="add-group-confirm default-btn d-flex justify-content-between align-center"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+                <button class="default-btn modal-close"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-blur"></div>
+</div>
+<div class="page">
+        <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+        <div class="form p-2">
+                <div class="input-label" style="width: 30em;">
+                    <label for="number-course" class="d-block" style="text-align: start;">Курс</label>
+                    <input type="text" name="number-course" class="input" style="background: #1E1E3F;" disabled value="<%= data.course %>">
+                </div>
+                <div class="input-label" style="width: 30em;">
+                    <label for="viddil" class="d-block" style="text-align: start;">Відділення</label>
+                    <select type="text" name="viddil" class="input" style="background: #1E1E3F;" disabled>
+                        <% if (data.department === "phys") {%>
+                            <option value="phys">Фізичний</option>
+                        <% } else {%>
+                            <option value="math">Математичний</option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="input-label" style="width: 30em;">
+                    <label for="" class="d-block" style="text-align: start;">Групи    <button class="popup-window default-btn-dark modal-open" name="add-group" popup-text="Додати групу"><p style="margin: 5px;"><i class="fas fa-plus"></i> Додати</p></button></label>
+                    <div class="groups d-flex flex-wrap">
+                        <% data.groups.forEach(element => { %>
+                            <div group-name="<%= element %>" class="group selected d-flex justify-content-between align-center default-btn-dark" onclick="clickGroup(this);">
+                                <p><%= element %></p>
+                                <div class="actions">
+                                    <i class="fas fa-trash"></i>
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <div class="second" style="position: absolute; bottom: 0; padding-bottom: 2em;">
+                <button class="default-btn-dark save"><i class="fas fa-save"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Зберети</button>
+            </div>
+        </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="/popup/popup.js"></script>
+<script src="/modal/modal.js"></script>
+<script src="/navbar/navbar.js"></script>
+<script src="/pages/js/page.js"></script>
+
+<script>
+$(document).ready(function () {
+    function clickGroup(elem) {
+            Popup.get(elem).fadeOut();
+            $(elem).toggleClass("selected")
+        }
+        function checkAddedGroup(name) {
+            var result = false;
+            $(".group").each(function (index, element) {
+                if($(this).attr("group-name") == name) {
+                    result = true;
+                }
+            });
+
+            return result;
+        }
+    setTimeout(() => {
+        $(".groups").bind("DOMSubtreeModified",function(){
+        $(".group").hover(function () {
+            if($(this).hasClass("selected")) {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб видалити групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб видалити групу", $(this)).display();
+                }
+            } else {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб додати групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб додати групу", $(this)).display();
+                }
+            }    
+        }, function () {
+            Popup.get($(this)).fadeOut(200);
+        }
+        );
+    });
+
+        $(".add-group-confirm").click(function (e) { 
+            e.preventDefault();
+            var group_name = $("input[name='group-name']")
+            if(group_name.val().length == 0) {
+                createModalOpen("error_empty", "Виникла помилка", "Поле не може бути пустим.", true)
+            } else if(checkAddedGroup(group_name.val())) {
+                createModalOpen("error_already_created", "Виникла помилка", "Група з даною назвою вже існує.", true)
+            } else {
+                $(".groups").append(`
+                <div group-name="${group_name.val()}" class="group selected d-flex justify-content-between align-center default-btn-dark" onclick="clickGroup(this);">
+                        <p>${group_name.val()}</p>
+                        <div class="actions">
+                            <i class="fas fa-trash"></i>
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                `)
+
+                closeModal("add-group");
+            }
+        });
+        $(document).on("click", ".group", function (e) {
+            e.preventDefault();
+            Popup.get($(this)).fadeOut();
+            $(this).toggleClass("selected")
+
+        });
+        $(".save").click(function (e) { 
+        e.preventDefault();
+
+        var groups = $(".group.selected");
+        var groupList = [];
+        groups.each(function (index, element) {
+            groupList[groupList.length] = $(element).attr("group-name");
+        });
+
+        if($("input[name='number-course']").val().length != 0) {
+            $.ajax({
+                        type: "POST",
+                        url: "/api/students/editcourse",
+                        data: {
+                            id: "<%= id %>",
+                            course: $("input[name='number-course']").val(),
+                            type: $("select[name='viddil']").val(),
+                            groups: groupList.join(";")
+                        },
+                        dataType: "JSON",
+                        success: function (response) {
+                            if(response.status) {
+                                location.href = "/admin/students/";
+                            } else {
+                                createModalOpen("error_undef", "Виникла помилка", "Виникла невідома помилка 2", true)
+                            }
+                        }
+                    });
+        } else {
+            createModalOpen("error_empty", "Виникла помилка", "Поле не може бути пустим.", true)
+        }
+    });
+        $(".group").hover(function () {
+                if($(this).hasClass("selected")) {
+                    if(Popup.get($(this))) {
+                        var pop = Popup.getClass($(this));
+                        pop.changeText("Натисність, щоб видалити групу");
+                        pop.display();
+                    } else {
+                        new Popup("Натисність, щоб видалити групу", $(this)).display();
+                    }
+                } else {
+                    if(Popup.get($(this))) {
+                        var pop = Popup.getClass($(this));
+                        pop.changeText("Натисність, щоб додати групу");
+                        pop.display();
+                    } else {
+                        new Popup("Натисність, щоб додати групу", $(this)).display();
+                    }
+                }    
+            }, function () {
+                Popup.get($(this)).fadeOut(200);
+            }
+        );
+    }, 10);
+});
+</script>

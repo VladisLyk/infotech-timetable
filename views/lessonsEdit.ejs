@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+    <div class="page">
+        <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+        <div class="instruments d-flex justify-content-between">
+            <div class="info">
+                <p>Відділення: <% if(type == "phys") { %> Фізичне <% } else { %> Математичне <% } %></p>
+                <p>Дата: <%= date %></p>
+            </div>
+            <div>
+                <label for="type" class="d-block">Тип заняття (по замовчуванню)</label>
+                <select type="text" name="type-default" class="input-light" style="width: 100%;">
+                    <option value="lection edit" title="Лекція">Лекція</option>
+                    <option value="practice edit" title="Практика">Практика</option>
+                    <option value="laboratory edit" title="Лабораторне заняття">Лабораторне заняття</option>
+                    <option value="consultation edit" title="Консультація">Консультація</option>
+                    <option value="examination-consultation edit" title="Екзаменаційна консультація">Екзаменаційна консультація</option>
+                    <option value="check-control-works edit" title="Перевірка контр. робіт, РГР">Перевірка контр. робіт, РГР</option>
+                    <option value="course-works edit" title="Курсові роботи">Курсові роботи</option>
+                    <option value="examination edit" title="Екзамени">Екзамени</option>
+                    <option value="practice-guidance edit" title="Керівництво практикою">Керівництво практикою</option>
+                    <option value="state-examination edit" title="Державні іспити">Державні іспити</option>
+                    <option value="qualification-works edit" title="Кваліфікаційні роботи">Кваліфікаційні роботи</option>
+                    <option value="guidance-graduate-students edit" title="Керівництво аспірантами">Керівництво аспірантами</option>
+                  </select>
+            </div>
+            <div>
+                <label for="form" class="d-block">Форма навчання (по замовчуванню)</label>
+                <select type="text" name="form-default" class="input-light" style="width: 100%;">
+                    <option value="offline" title="Офлайн">Офлайн</option>
+                    <option value="online" title="Онлайн">Онлайн</option>
+                </select>
+            </div>
+            <div class="actions">                                                                                                                                                                                                                                                                                                                   
+                <button class="inst-btn save">Зберети</button>
+            </div>
+        </div>
+        <div class="lessons">
+        </div>
+        <div class="table">
+            <table class="diciplines draggable-table">
+                <thead>
+                    <tr class="columns">
+                        <th>ID</th>
+                        <th>Дисципліни</th>
+                        <th>Викладачі</th>
+                        <th>Тип</th>
+                      </tr>
+                </thead>
+                <tbody class="diciplines dicip-body">
+                </tbody>
+              </table>
+        </div>
+        <div class="actions">
+            <button class="remove-selected modal-open" name="remove-selected"><i class="fas fa-trash"></i><p>Видалити обране</p></button>
+            <div class="paginator">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/popup/popup.js"></script>
+    <script src="/modal/modal.js"></script>
+    <script src="/navbar/navbar.js"></script>
+    <script src="/pages/js/page.js"></script>
+    <script src="/date-picker/date.js"></script>
+    <script src="/dropdown/dropdown.js"></script>
+    <script>
+    function loadData(page) {
+        $.ajax({
+            type: "POST",
+            url: "/api/diciplines/prepared",
+            data: {
+                page: page,
+            },
+            dataType: "json",
+            success: function (response) {
+                $(".dicip-body").html(response[0]);
+                renderPaginator(response[1], response[2]);
+            }
+        });
+    }
+    $(document).ready(function () {
+        loadData(1);
+    });
+    $(document).on("click", ".paginator-btn", function (e) {
+        e.preventDefault();
+        loadData($(this).attr("page"));
+    });
+    function renderPaginator(currentPage, totalPages) {
+        $(".paginator").empty();
+
+        $(".paginator").append(
+            `<button class="btn paginator-btn" page="${currentPage - 1}" ${currentPage > 1 ? '' : 'disabled'}>&lt;</button>`
+        );
+
+        for (let index = 1; index <= totalPages; index++) {
+            const buttonClass = (currentPage == index) ? "btn paginator-btn active" : "btn paginator-btn";
+            $(".paginator").append(
+                `<button class="${buttonClass}" page="${index}">${index}</button>`
+            );
+        }
+
+        // Add right arrow button
+        $(".paginator").append(
+            `<button class="btn paginator-btn" page="${currentPage + 1}" ${currentPage < totalPages ? '' : 'disabled'}>&gt;</button>`
+        );
+    }
+
+
+         const currentDate = new Date();
+
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0, поэтому добавляем 1
+        const year = currentDate.getFullYear();
+
+                // Форматирование даты в строку "день/месяц/год"
+        const formattedDate = `${year}-${month}-${day}`;
+
+
+        $(".remove-btn").click(function (e) { 
+            e.preventDefault();
+        });
+        $(".edit-btn").click(function (e) { 
+            e.preventDefault();
+        });
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "/api/lessons/generateAdmin",
+                data: {
+                    file: "<%= file %>"
+                },
+                dataType: "TEXT",
+                success: function (response) {
+                    $(".lessons").html(response.replace(/,/g, ''));
+                    setTimeout(() => {
+                        $(".move").removeClass("ui-sortable-handle")
+                    }, 200);
+                    var script = document.createElement('script');
+                    script.src = '/table/table_EDIT.js';
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    $("body").append(script);
+
+                }
+            });
+            $(document).on("click", ".save", function (e) {
+                e.preventDefault();
+
+                var coursesList = [];
+                $.ajax({
+                    type: "POST",
+                    url: "/api/students/data",
+                    dataType: "JSON",
+                    success: function (response) {
+                        $.each(response, function (indexInArray, valueOfElement) { 
+                            if(valueOfElement.department == "<%= type %>") {
+                                coursesList[coursesList.length] = valueOfElement.course;
+                            } 
+                        });
+                    }
+                });
+
+                const lessons = {
+                    date: "<%= date %>",
+                    lessons: []
+                };
+                var data = {};
+
+                $(".lessons .lessons-table tbody tr").each(function (outerIndex, element) {
+                    var tds = $(element).find("td");
+
+                    for (let innerIndex = 0; innerIndex < tds.length; innerIndex++) {
+                        var td = $(tds[innerIndex]);
+
+                        if (!td.hasClass("number-lesson")) {
+                            var lessonNumber = $(element).find("td.number-lesson").attr("data-lesson");
+                            const colspan = parseInt(td.attr("colspan")) || 1;
+
+                            var courseName = td.data("course");
+                            var groupName = td.data("group");
+
+                            if (!(lessonNumber in data)) {
+                                data[lessonNumber] = { courses: {} };
+                            }
+
+                            var lesson = data[lessonNumber];
+
+                            if (!(courseName in lesson.courses)) {
+                                lesson.courses[courseName] = { groups: {} };
+                            }
+
+                            var course = lesson.courses[courseName];
+
+                            if (!(groupName in course.groups)) {
+                                course.groups[groupName] = { subgroups: {} };
+                            }
+
+                            var group = course.groups[groupName];
+
+                            var subgroup = td.data("subgroup");
+                            var info = {
+                                name: "",
+                                type: "",
+                                form: "",
+                                teacher: "",
+                                classroom: "",
+                                email: ""
+                            };
+
+                            var names = [];
+                            var types = [];
+                            var forms = [];
+                            var teachers = [];
+                            var classrooms = [];
+                            var emails = [];
+
+                            td.find(".move").each(function (index, element) {
+                                names.push($(this).find(".header h4").text());
+                                types.push($(this).find(".type-lesson select").val());
+                                if ($(this).find(".teach-form button.active").text() === "Онлайн") {
+                                    forms.push("online");
+                                } else {
+                                    forms.push("offline");
+                                }
+
+                                teachers.push(($(this).find(".header p").find("select").length == 0) ?
+                                    $(this).find(".header p").text() :
+                                    $(this).find(".header p").find("select").val());
+
+                                    classrooms.push($(this).find("#classroomNumber").val());
+                                    emails.push($(this).find("#email").val());
+                            });
+
+                            info.name = names.join(";");
+                            info.type = types.join(";");
+                            info.form = forms.join(";");
+                            info.teacher = teachers.join(";");
+                            info.classroom = classrooms.join(";");
+                            info.email = emails.join(";");
+
+                            group.subgroups[subgroup] = group.subgroups[subgroup] || {};
+                            group.subgroups[subgroup] = info;
+
+
+                            if(colspan > 1 || colspan < getMaxColspan()) {
+                                for (let index2 = 0; index2 < colspan; index2++) {
+                                    var nexttd = $(tds[innerIndex+index2]);
+                                    var groupName = nexttd.data("group");
+                                    var course = lesson.courses[courseName];
+                                    if (!(groupName in course.groups)) {
+                                        course.groups[groupName] = { subgroups: {} };
+                                    }
+                                    var group = course.groups[groupName];
+                                    var subgroup = nexttd.data("subgroup");
+                                    group.subgroups[subgroup] = group.subgroups[subgroup] || {};
+                                    group.subgroups[subgroup] = info;
+                                }
+                                innerIndex += colspan-1;
+                            }
+                        }
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/api/lessons/replace",
+                    data: {
+                        "type" : "<%= type %>",
+                        "date" : "<%= date %>",
+                        "data" : JSON.stringify(data)
+                    },
+                    dataType: "JSON",
+                    success: function (response) {
+                        if(response) {
+                            location.href = "/admin/lessons/";
+                        } else {
+                            createModalOpen("error_" + response.error.toString(), "Помилка", response.error_message.toString(), true);
+                        }
+                    }
+                });
+
+            });
+            function getMaxColspan() {
+                let maxColspan = 1;
+
+                $(".lessons .lessons-table tbody tr.lesson").each(function () {
+                    $(this).find("td").each(function () {
+                        const colspan = parseInt($(this).attr("colspan")) || 1;
+                        if (colspan > maxColspan) {
+                            maxColspan = colspan;
+                        }
+                    });
+                });
+
+                return maxColspan;
+            }
+
+        });
+        function getDefaultForm() {
+            return $("select[name='form-default'] > option:selected").val()
+        }
+
+        function getDefaultType() {
+            return $("select[name='type-default'] > option:selected").val()
+        }
+    </script>
+</body>
+</html>

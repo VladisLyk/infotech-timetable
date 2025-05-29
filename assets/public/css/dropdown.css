@@ -1,0 +1,115 @@
+.dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    font-weight: lighter;
+    font-family: "Roboto";
+    position: absolute;
+    min-width: 472px;
+    max-width: 472px;
+    /* margin-left: -174px; */
+    background-color: #31315E;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* z-index: 1; */
+    max-height: 0;
+    visibility: hidden;
+    padding: 1em;
+    transition: all 0.3s ease;
+    z-index: 999;
+    right: 0;
+  }
+  @media (max-width: 576px) {
+    .dropdown-content {
+        min-width: 0px;
+    }
+    .dropdown-content label {
+      font-size: 1.2em;
+    }
+    .dropdown-content select {
+      font-size: 1.1em;
+    }
+}
+
+
+  .dropdown-content a {
+    font-size: 13px;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+  }
+  .dropdown-content select {
+    color: white;
+    background-color: #1E1E3F;
+    border: none;
+    outline: none;
+    padding: 10px;
+  }
+
+  .dropdown-content.active {
+    visibility: visible;
+  }
+
+.dropdown-button {
+    cursor: pointer;
+}
+.checkbox-icon {
+  padding: 0.4em;
+  background-color: #1E1E3F;
+  width: inherit;
+}
+.checkbox-icon i.active {
+  opacity: 1;
+}
+.checkbox-icon i {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.checkbox label {
+  text-align: start;
+  font-size: 17px;
+  margin-left: 10px;
+}
+.checkbox {
+  margin-top: 40px;
+}
+.set-filter {
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 0.9em;
+  padding: 0.5em 0.5em;
+  background-color: #1E1E3F;
+  color: white;
+  font-weight: lighter;
+  font-family: "Roboto";
+}
+@media (max-width: 576px) {
+  .set-filter {
+    font-size: 1.1em;
+  }
+}
+.button-filter {
+  display: flex;
+}
+.delete-filter {
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+  font-size: 0.9em;
+  padding: 0.5em 0.5em;
+  background-color: #1E1E3F;
+  color: white;
+  font-weight: lighter;
+  font-family: "Roboto";
+}
+@media (max-width: 576px) {
+  .delete-filter {
+    font-size: 1.1em;
+  }
+}

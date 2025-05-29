@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+<style>
+    .results {
+        /* padding: 10px; */
+        background-color: #2a2a57;
+        width: 100%;
+    }
+    .teach-btn {
+        outline: none;
+        border: none;
+        width: 100%;
+        color: white;
+        text-align: start;
+        background-color: #34346d;
+        transition: all 0.3s ease;
+        padding: 10px;
+    }
+    .teach-btn:hover {
+        background-color: #414189;
+    }
+</style>
+<div class="modal" name="add-teacher">
+    <div class="modal-body">
+        <div class="modal-head">
+            <i class="fas fa-plus"></i>
+            Додати викладача
+        </div>
+        <div class="modal-content">
+            <div class="input-label">
+                <label for="teacher-name" class="d-block">Починайте вводити ініціали</label>
+                <input type="text" name="teacher-name" class="input" placeholder="ПІБ викладача">
+                <div style="width: 100%; position: relative;">
+                    <div class="results" style="position: absolute;">
+                    </div>
+                </div>
+            </div>
+            <div class="" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap; text-align: center;">
+                <button class="default-btn modal-close"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-blur"></div>
+</div>
+<div class="page">
+        <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+        <div class="form p-2">
+                <div class="input-label" style="width: 30em;">
+                    <label for="name" class="d-block" style="text-align: start;">Назва дисципліни</label>
+                    <input type="text" name="name" class="input" style="background: #1E1E3F;" placeholder="Введіть назву, наприклад: Алгоритмізація і програмування">
+                </div>
+                <div class="input-label" style="width: 30em;">
+                    <label for="type" class="d-block" style="text-align: start;">Тип дисципліни</label>
+                    <select type="text" name="type" class="input" style="background: #1E1E3F;">
+                        <option value="professional">Фахова</option>
+                        <option value="categorical">Категорійна</option>
+                        <option value="interdisciplinary">Міжгалузева</option>
+                    </select>
+                </div>
+                <div class="input-label" style="width: 30em;">
+                    <label for="" class="d-block" style="text-align: start;">Викладачі    <button class="default-btn-dark modal-open" name="add-teacher"><p style="margin: 5px;"><i class="fas fa-plus"></i> Додати</p></button></label>
+                    <div class="teachers groups d-flex flex-wrap">
+                        
+                    </div>
+                </div>
+            <div class="second" style="position: relative;">
+                    <button class="default-btn-dark save"><i class="fas fa-save"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Зберети</button>
+            </div>
+        </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="/popup/popup.js"></script>
+<script src="/modal/modal.js"></script>
+<script src="/navbar/navbar.js"></script>
+<script src="/pages/js/page.js"></script>
+
+<script>
+    $(document).on("click", ".teach-btn", function (e) {
+        e.preventDefault();
+        var name = $(this).text();
+        var already_added = false;
+        $(".group").each(function (index, element) {
+            if($(element).attr("teacher-name").trim() == name.trim()) {
+                already_added = true;
+            }
+        });
+
+        if(!already_added) {
+            $(".teachers").append(`
+        
+            <div teacher-name="${$(this).text()}" class="group selected d-flex justify-content-between align-center default-btn-dark">
+                                    <p>${$(this).text()}</p>
+                                    <div class="actions">
+                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+            
+            `);
+            closeModalAll();
+        } else {
+            createModalOpen("error_already", "Виникла помилка", "Даного викладача вже було додано до списку!", true)
+        }
+        
+    });
+    $(document).ready(function () {
+        $(".results").hide();
+    });
+    $("input[name='teacher-name']").keyup(function (e) { 
+        if($(this).val().length == 0) {
+            $(".results").hide();
+        } else {
+            $(".results").show();
+            $.ajax({
+                type: "POST",
+                url: "/api/diciplines/find",
+                data: {
+                    name: $(this).val()
+                },
+                dataType: "JSON",
+                success: function (response) {
+                    $(".results").html(response.data);
+                }
+            });
+        }
+    });
+    $(".save").click(function (e) { 
+        e.preventDefault();
+
+        var groups = $(".group.selected");
+        var groupList = [];
+        groups.each(function (index, element) {
+            groupList[groupList.length] = $(element).attr("teacher-name");
+        });
+
+        if($("input[name='name']").val().length == 0) {
+            createModalOpen("error_empty", "Виникла помилка", "Поле не може бути пустим.", true)
+            return;
+        }
+
+        if($(".group.selected").length == 0) {
+            createModalOpen("error_teachers", "Виникла помилка", "Додайте хоча б єдиного викладача.", true)
+            return;
+        }
+
+        $.ajax({
+                        type: "POST",
+                        url: "/api/diciplines/add",
+                        data: {
+                            name: $("input[name='name']").val(),
+                            type: $("select[name='type']").val(),
+                            teachers: groupList.join(";")
+                        },
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response)
+                            if(response.status) {
+                                location.href = "/admin/diciplines/";
+                            } else {
+                                createModalOpen("error_undef", "Виникла помилка", response.error_message, true)
+                            }
+                        }
+            });
+    });
+    $(".teachers").bind("DOMSubtreeModified",function(){
+        $(".group").hover(function () {
+            if($(this).hasClass("selected")) {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб видалити групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб видалити групу", $(this)).display();
+                }
+            } else {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб додати групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб додати групу", $(this)).display();
+                }
+            }    
+        }, function () {
+            Popup.get($(this)).fadeOut(200);
+        }
+        );
+    });
+    function clickGroup(elem) {
+        Popup.get(elem).fadeOut();
+        $(elem).toggleClass("selected")
+    }
+    function checkAddedGroup(name) {
+        var result = false;
+        $(".group").each(function (index, element) {
+            if($(this).attr("group-name") == name) {
+                result = true;
+            }
+        });
+
+        return result;
+    }
+
+    $(document).on("click", ".group", function (e) {
+        e.preventDefault();
+        Popup.get($(this)).fadeOut();
+        $(this).toggleClass("selected")
+
+    });
+
+    $(".group").hover(function () {
+            if($(this).hasClass("selected")) {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб видалити групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб видалити групу", $(this)).display();
+                }
+            } else {
+                if(Popup.get($(this))) {
+                    var pop = Popup.getClass($(this));
+                    pop.changeText("Натисність, щоб додати групу");
+                    pop.display();
+                } else {
+                    new Popup("Натисність, щоб додати групу", $(this)).display();
+                }
+            }    
+        }, function () {
+            Popup.get($(this)).fadeOut(200);
+        }
+    );
+</script>

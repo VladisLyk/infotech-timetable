@@ -1,0 +1,797 @@
+{
+  "date": "2023-12-19",
+  "lessons": {
+    "1": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Математичний аналіз",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "258",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Математичний аналіз",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Молекулярна фізика",
+                  "type": "laboratory",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Молекулярна фізика",
+                  "type": "laboratory",
+                  "form": "offline",
+                  "teacher": "Кулик Людмила Олександрівна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Алгоритмізація та програмування",
+                  "type": "lection",
+                  "form": "offline",
+                  "teacher": "Запорожець Тетяна Василівна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Молекулярна фізика",
+                  "type": "laboratory",
+                  "form": "offline",
+                  "teacher": "Татарчук Євгній Вікторович",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "4": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Вища математика",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "Сердюк Зоя Олексіївна",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "Філософія",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "П'янзін Сергій Дмитрович",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Філософія",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "П'янзін Сергій Дмитрович",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Молекулярна фізика",
+                  "type": "laboratory",
+                  "form": "offline",
+                  "teacher": "Татарчук Євгній Вікторович",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "5": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "Філософія",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "П'янзін Сергій Дмитрович",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "Філософія",
+                  "type": "practice",
+                  "form": "offline",
+                  "teacher": "П'янзін Сергій Дмитрович",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "6": {
+      "courses": {
+        "1": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "groups": {
+            "А": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Б": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            },
+            "Ф": {
+              "subgroups": {
+                "1": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                },
+                "2": {
+                  "name": "",
+                  "type": "",
+                  "form": "",
+                  "teacher": "",
+                  "classroom": "",
+                  "email": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

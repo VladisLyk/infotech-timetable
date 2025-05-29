@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+        <div class="modal" name="add-group">
+        <div class="modal-body">
+            <div class="modal-head">
+                <i class="fas fa-plus"></i>
+                Додати групу
+            </div>
+            <div class="modal-content">
+                <div class="input-label">
+                    <label for="type" class="d-block">Оберіть відділ</label>
+                    <select type="text" name="addgroup_type" class="input" placeholder="Назва групи">
+                        <option value="phys">Фізичний</option>
+                        <option value="math">Математичний</option>
+                    </select>
+                </div>
+                <div class="input-label">
+                    <label for="type" class="d-block">Оберіть курс</label>
+                    <select type="text" name="addgroup_courses" class="input" placeholder="Назва групи">
+                </select>
+                </div>
+                <div class="input-label">
+                    <label for="group-name" class="d-block">Введіть назву групи</label>
+                    <input type="text" name="addgroup_name" class="input" placeholder="Назва групи">
+                </div>
+                <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+                    <button class="default-btn d-flex justify-content-between align-center addgroup-btn"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+                    <button class="default-btn modal-close"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-blur"></div>
+        </div>
+    <div class="modal" name="remove-selected">
+        <div class="modal-body">
+            <div class="modal-head">
+                <i class="fas fa-exclamation-triangle"></i>
+                Підтвердження дії
+            </div>
+            <div class="modal-content" style="padding: 30px">
+                <p>Ви збираєтесь видалити наступне:</p>
+                <div class="table-2">
+                    <table>
+                        <thead>
+                            <tr class="columns">
+                                <th>ID</th>
+                                <th>Відділення</th>
+                                <th>Курс</th>
+                                <th>Групи</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+                    <button class="default-btn d-flex justify-content-between align-center removeCourses"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+                    <button class="default-btn modal-close" onclick="closeModal('remove-selected')"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-blur"></div>
+        </div>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+<div class="page">
+    <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+<div class="instruments">
+    <button class="inst-btn remove-action"><i class="fas fa-trash"></i>Видалити</button>
+    <button class="inst-btn edit-action"><i class="fas fa-edit"></i>Змінити</button>
+    <button class="inst-btn link-move" link="students/add"><i class="fas fa-plus-square"></i>Додати курс</button>
+    <button class="inst-btn modal-open" name="add-group"><i class="fas fa-plus-square"></i>Додати групу</button>
+</div>
+<div class="table">
+    <table>
+        <thead>
+            <tr class="columns">
+                <th>ID</th>
+                <th>Відділення</th>
+                <th>Курс</th>
+                <th>Групи</th>
+                
+              </tr>
+        </thead>
+        <tbody class="student-body">
+        </tbody>
+      </table>
+</div>
+<div class="actions">
+    <button class="remove-selected modal-open" name="remove-selected"><i class="fas fa-trash"></i><p>Видалити обране</p></button>
+     <div class="paginator">
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/popup/popup.js"></script>
+<script src="/modal/modal.js"></script>
+<script src="/navbar/navbar.js"></script>
+<script src="/pages/js/page.js"></script>
+<script>
+    $(".edit-action").click(function (e) { 
+    e.preventDefault();
+    $(".remove-action").removeClass("active");
+    $(".table").removeClass("removeble")
+    $(".remove-selected").removeClass("active")
+
+    $(this).toggleClass('active');
+    $(".table").toggleClass("editable")
+    $(".row").removeClass("active")
+});
+$("select[name='addgroup_type']").change(function (e) { 
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "/api/students/courses",
+        data: {
+            type: $(this).val()
+        },
+        dataType: "text",
+        success: function (response) {
+            if(response != "") {
+                $("input[name='group-name']").prop("disabled", false)
+                $("select[name='addgroup_courses']").html(response);
+            } else {
+                $("input[name='group-name']").prop("disabled", true)
+                $("select[name='addgroup_courses']").html(`<option value="nothing">Груп не знайдено.</option>`);
+            }
+        }
+    });
+});
+$(document).ready(function () {
+    $.ajax({
+        type: "POST",
+        url: "/api/students/courses",
+        data: {
+            type: "phys"
+        },
+        dataType: "text",
+        success: function (response) {
+            if(response != "") {
+                $("input[name='group-name']").prop("disabled", false)
+                $("select[name='addgroup_courses']").html(response);
+            } else {
+                $("input[name='group-name']").prop("disabled", true)
+                $("select[name='addgroup_courses']").html(`<option value="nothing">Груп не знайдено.</option>`);
+            }
+        }
+    });
+    loadData(1);
+function loadData(page) {
+    $.ajax({
+        type: "POST",
+        url: "/api/students/prepared",
+        data: {
+            page: page,
+        },
+        dataType: "json",
+        success: function (response) {
+            $(".student-body").html(response[0]);
+            renderPaginator(response[1], response[2]);
+        }
+    });
+}
+
+
+
+
+    $(document).on("click", ".paginator-btn", function (e) {
+        e.preventDefault();
+        loadData($(this).attr("page"));
+    });
+    $(document).on("click", ".row", function (e) {
+        e.preventDefault();
+        if($(".table").hasClass("removeble")) {
+            $(this).toggleClass("active")
+        }
+
+        if($(".table").hasClass("editable")) {
+            location.href = "/admin/students/edit/" + $(this).attr("id");
+        }
+    });
+    var remove_courses = [];
+    $(document).on("click", ".remove-selected", function (e) {
+        e.preventDefault();
+        $(".modal[name='remove-selected'] > .modal-body > .modal-content > .table-2 > table > tbody").empty()
+        remove_courses = [];
+
+        $(".row").each(function (index, element) {
+            if($(this).hasClass("active")) {
+                if(remove_courses.length == 0) {
+                    remove_courses[remove_courses.length] = $(this).attr("id");
+                } else {
+                    remove_courses[remove_courses.length + 1] = $(this).attr("id");
+                }
+                $(".modal[name='remove-selected'] > .modal-body > .modal-content > .table-2 > table > tbody").append($(this).clone().removeClass("active"))
+            }
+        });
+
+    });
+
+    $(".removeCourses").click(function (e) { 
+        e.preventDefault();
+
+        if(remove_courses.length != 0) {
+            $.ajax({
+            type: "POST",
+            url: "/api/students/remove",
+            data: {
+                removeList: remove_courses.join(";")
+            },
+            dataType: "json",
+            success: function (response) {
+                $(".edit-action").removeClass("active");
+                $(".table").removeClass("editable")
+                $(".remove-action").toggleClass('active');
+                $(".table").toggleClass("removeble")
+                $(".row").removeClass("active")
+                $(".remove-selected").toggleClass("active")
+                if(response.reload) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/students/courses",
+                        data: {
+                            type: "phys"
+                        },
+                        dataType: "text",
+                        success: function (response) {
+                            if(response != "") {
+                                $("input[name='group-name']").prop("disabled", false)
+                                $("select[name='addgroup_courses']").html(response);
+                            } else {
+                                $("input[name='group-name']").prop("disabled", true)
+                                $("select[name='addgroup_courses']").html(`<option value="nothing">Груп не знайдено.</option>`);
+                            }
+                        }
+                    });
+                    loadData(1);
+                } else {
+                    warning("Виникла помилка під час видалення")
+                }
+
+                $(".modal[name='remove-selected']").removeClass('active');
+            }
+        });
+        }
+    });
+
+$(".addgroup-btn").click(function (e) { 
+    e.preventDefault();
+    var course = $("select[name='addgroup_courses']").val();
+    var type = $("select[name='addgroup_type']").val();
+    var group = $("input[name='addgroup_name'").val();
+
+    if(course != "nothing" && group.length != 0) {
+        $.ajax({
+            type: "POST",
+            url: "/api/students/addgroup",
+            data: {
+                course: course,
+                type: type,
+                group: group
+            },
+            dataType: "JSON",
+            success: function (response) {
+                if(response.status) {
+                    loadData(1);
+                    $(".modal[name='add-group']").removeClass('active');
+                } else {
+                    warning(response.error_message);
+                }
+            }
+        });
+    }
+});
+function renderPaginator(currentPage, totalPages) {
+    $(".paginator").empty();
+
+    $(".paginator").append(
+        `<button class="btn paginator-btn" page="${currentPage - 1}" ${currentPage > 1 ? '' : 'disabled'}>&lt;</button>`
+    );
+
+    for (let index = 1; index <= totalPages; index++) {
+        const buttonClass = (currentPage == index) ? "btn paginator-btn active" : "btn paginator-btn";
+        $(".paginator").append(
+            `<button class="${buttonClass}" page="${index}">${index}</button>`
+        );
+    }
+
+    // Add right arrow button
+    $(".paginator").append(
+        `<button class="btn paginator-btn" page="${currentPage + 1}" ${currentPage < totalPages ? '' : 'disabled'}>&gt;</button>`
+    );
+}
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:wght@100;300;700&display=swap');
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Roboto";
+    font-weight: 300;
+    background-color: #31315E;
+}
+
+.navbar {
+    width: 200px;
+    background: #1E1E3F;
+    transition: all 0.3s ease;
+    position: fixed;
+    height: 100%;
+}
+.page {
+    margin-left: 200px;
+    transition: all 0.3s ease;
+}
+.page.short {
+    margin-left: 96px;
+}
+
+.navbar .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 19px;
+}
+.navbar .head h3 {
+    font-style: normal;
+    line-height: normal;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar .head h4 {
+    line-height: normal;
+    margin-top: -20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+.navbar .head i {
+    font-size: 1.7em;
+}
+
+
+.navbar .links {
+    /* height: 90vh; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 18px;
+}
+.navbar .links .pages {
+    display: grid;
+    grid-row-gap: 1em;
+}
+.navbar .links button {
+    display: flex;
+    padding: 15px 22px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    background: #31315E;
+    color: white;
+    outline: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar .links .pages button:hover {
+    background: #484889;
+}
+.navbar .links .pages .btn-link.active {
+    background: #484889;
+}
+
+.navbar p {
+    margin: 0;
+}
+.navbar.short {
+    width: 96px;
+}
+.navbar.short .links {
+    height: 100vh;
+}
+.navbar.short .head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 19px 19px;
+}
+
+.hide-menu {
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    order: 1;
+}
+
+.links {
+    order: 2;
+}
+.logout {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 18px;
+    width: 100%;
+}
+.btn-link[link="logout"] {
+    width: 100%;
+    order: 3;
+    display: flex;
+    padding: 15px 22px;
+    justify-content: space-between;
+    align-items: center;
+    background: #31315E;
+    color: white;
+    outline: none;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+}

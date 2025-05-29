@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - Розклад занять</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/dropdown.css">
+    <link rel="stylesheet" href="/public/css/table.css">
+</head>
+<body>
+    <header class="head" style="color: white;"  >
+        <div class="date-creating">
+            <div class="title">
+                <h3>ІНФОТЕХ</h3><p>розклад занять</p>
+            </div>
+            <div class="creat">
+                <p class="text">Розклад завантажено:</p>
+                <p class="date"></p>
+            </div>
+        </div>
+            <div class="filter">   
+                <div class="dropdown">
+                    <div class="dropdown-button dropbtn">
+                        <i class="fa-sharp fa-solid fa-filter dropbtn"></i>
+                        <span class="dropbtn">ФІЛЬТР</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="dropdown-content">
+        <div class="select-lable">
+             <label for="course">Курс:</label>
+             <select type="text" name="courses" style="width: 100%;" class="input" placeholder="Назва групи">
+                <option value="none">Оберіть курс</option>
+            </select>
+         </div>
+         <div class="select-lable"> 
+             <label for="group">Група:</label>
+             <select name="groups" id="groups" style="width: 100%;">2
+                 <option value="none">Оберіть групу</option>
+             </select>
+         </div>
+         <!-- <div class="select-lable">
+             <label for="teacher">Викладач:</label>
+             <select name="" id="teacher" style="width: 100%;">3
+                 <option value="none">Оберіть викладача</option>
+                 <option value="Запорожець Т.В" >Запорожець Т.В.</option>
+                 <option value="Сердюк З.О" >Сердюк З.О</option>
+             </select>
+         </div> -->
+         <div class="select-lable">
+            <div class="input-label">
+                <label for="date" class="d-block">Оберіть дату</label>
+                <date-picker format="MMMM DD (DDD), YYYY"></date-picker>
+            </div>
+             <div class="checkbox" style="display: flex; align-items: center;">
+                <div class="checkbox-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <label>При завантаженні розкладу застосувати дані параметри</label>
+            </div>
+            <div class="button-filter">
+                <button class="set-filter">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                Застосувати
+                </button>
+                <button class="delete-filter">
+                <i class="fa-solid fa-circle-xmark"></i>
+                Скинути
+                </button>
+            </div> 
+         </div>
+     </div>
+     <div class="panel">
+        <div class="select-type">
+             <select name="type" id="type">
+                 <option value="phys">
+                     Фізичне
+                 </option>
+                 <option value="math">
+                     Математичне
+                 </option>
+             </select>
+         </div>
+     </div>
+    <div class="border">
+
+    </div>
+    <script src="/date-picker/date_index.js"></script>
+    <script src="/public/js/moment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/public/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/0d50e09f6d.js" crossorigin="anonymous"></script>
+</body>
+</html>

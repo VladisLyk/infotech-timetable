@@ -1,0 +1,36 @@
+[
+  {
+    "course": 1,
+    "department": "phys",
+    "groups": [
+      "А",
+      "Б",
+      "Ф"
+    ]
+  },
+  {
+    "course": 2,
+    "department": "phys",
+    "groups": [
+      "А",
+      "Б",
+      "Ф"
+    ]
+  },
+  {
+    "course": 1,
+    "department": "math",
+    "groups": [
+      "МСО",
+      "М"
+    ]
+  },
+  {
+    "course": 2,
+    "department": "math",
+    "groups": [
+      "МСО",
+      "М"
+    ]
+  }
+]

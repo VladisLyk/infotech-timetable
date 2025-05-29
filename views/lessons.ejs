@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/public/css/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <style>
+        tr {
+            vertical-align: inherit;
+        }
+    </style>
+</head>
+<body>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+<div class="modal" name="create-lessons">
+    <div class="modal-body">
+        <div class="modal-head">
+            <i class="fas fa-table"></i>
+            Створити розклад
+        </div>
+        <div class="modal-content">
+            <div class="input-label">
+                <label for="type" class="d-block">Оберіть відділ</label>
+                <select type="text" name="type" class="input" placeholder="Назва групи">
+                    <option value="phys">Фізичний</option>
+                    <option value="math">Математичний</option>
+                </select>
+            </div>
+            <div class="input-label">
+                <label for="date" class="d-block">Оберіть дату</label>
+                <date-picker format="MMMM DD (DDD), YYYY"></date-picker>
+            </div>
+            <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+                <button class="add-lesson-confirm default-btn d-flex justify-content-between align-center"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+                <button class="default-btn modal-close"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-blur"></div>
+</div>
+<div class="page">
+    <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+    <div class="instruments">
+        <select name="load-type" class="input-light">
+            <option value="phys">Фізичне відділення</option>
+            <option value="math">Математичне відділення</option>
+        </select>
+        <button class="inst-btn modal-open" name="create-lessons"><i class="fas fa-plus-square"></i>Створити</button>
+        <button class="inst-btn download-table"><i class="fas fa-save"></i>Завантажити</button>
+    </div>
+    <div class="lessons">
+    </div>
+    <div class="table">
+        <table class="diciplines draggable-table">
+            <thead>
+                <tr class="columns">
+                    <th>ID</th>
+                    <th>Дата</th>
+                    <th>Відділення</th>
+                    <th>Дії</th>
+                    
+                  </tr>
+            </thead>
+            <tbody>
+                <tr class="row " id="1">
+                    <td>1</td>
+                    <td>Вчора</td>
+                    <td>Фізичне</td>
+                    <td class="d-flex">
+                        <button class="professional-btn m-1">Переглянути</button>
+                        <button class="remove-btn m-1">Видалити</button>
+                    </td>
+                  </tr>
+                  <tr class="row" id="1">
+                    <td>1</td>
+                    <td>Вчора</td>
+                    <td>Фізичне</td>
+                    <td class="d-flex">
+                        <button class="professional-btn m-1">Переглянути</button>
+                        <button class="remove-btn m-1">Видалити</button>
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="actions">
+        <button class="remove-selected modal-open" name="remove-selected"><i class="fas fa-trash"></i><p>Видалити обране</p></button>
+        <div class="paginator">
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/popup/popup.js"></script>
+<script src="/modal/modal.js"></script>
+<script src="/navbar/navbar.js"></script>
+<script src="/pages/js/page.js"></script>
+<script src="/date-picker/date.js"></script>
+<script>
+    $(".add-lesson-confirm").click(function (e) { 
+        e.preventDefault();
+        var selectedDay = datePicker.date.date;
+        var selectedMonth = datePicker.date.monthNumber;
+        var selectedYear = datePicker.date.year;
+        
+        var currentDay = new Date().getDate();
+        var currentMonth = new Date().getMonth() + 1; // Прибавляем 1, так как getMonth возвращает от 0 до 11
+        var currentYear = new Date().getFullYear();
+
+        // Преобразуем выбранную дату и текущую дату в объекты Date
+        var selectedDate = new Date(selectedYear, selectedMonth - 1, selectedDay); // Вычитаем 1, так как месяцы в объекте Date начинаются с 0
+        var currentDate = new Date(currentYear, currentMonth - 1, currentDay); // Вычитаем 1 для текущей даты
+
+        // Проверяем, что выбранная дата не меньше текущей даты
+        if (selectedDate < currentDate) {
+            createModalOpen("error_date", "Виникла помилка", "Створити розклад за минулу дату неможливо.", true)
+            return;
+        }
+
+        var formattedDate = `${selectedDate.getFullYear()}-${selectedDate.getMonth()+1}-${selectedDate.getDate()}`;
+        var type = $("select[name='type']").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/api/lessons/checkFile",
+            data: {
+                date: formattedDate,
+                type: type
+            },
+            dataType: "text",
+            success: function (response) {
+                if(response == "true") {
+                    createModalOpen("error_already", "Виникла помилка", "Розклад за такою датою вже створено!", true)
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/lessons/checkStudents",
+                        data: {
+                            type: type
+                        },
+                        dataType: "text",
+                        success: function (response) {
+                            if(response == "false") {
+                                createModalOpen("error_nope", "Виникла помилка", "Неможливо створити розклад за відсутності студентів!", true)
+                            } else {
+                                location.href = `/admin/lessons/add?date=${formattedDate}&type=${type}`;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+
+    $(document).ready(function () {
+        loadTodayTable($("select[name='load-type']").val());
+    });
+    function loadTodayTable() {
+        $.ajax({
+            type: "POST",
+            url: "/api/lessons/loadToday",
+            data: {
+                type: $("select[name='load-type']").val()
+            },
+            dataType: "text",
+            success: function (response) {
+                $(".lessons").removeClass("empty");
+                $(".lessons").html(response);
+
+                if($(".lessons").find(".warning").length != 0) {
+                    $(".lessons").addClass("empty")
+                }
+            }
+        });
+    }
+    $(".remove-btn").click(function (e) { 
+        e.preventDefault();
+    });
+    $(".edit-btn").click(function (e) { 
+        e.preventDefault();
+    });
+    $(".create-lessons").click(function (e) { 
+        e.preventDefault();
+        $(".lessons").removeClass("empty");
+    });
+    $(document).ready(function () {
+        $("select[name='load-type']").change(function (e) { 
+            e.preventDefault();
+            loadTodayTable();
+            loadData(1);
+        });
+        function loadData(page) {
+            $.ajax({
+                type: "POST",
+                url: "/api/lessons/prepared",
+                data: {
+                    page: page,
+                    type: $("select[name='load-type']").val()
+                },
+                dataType: "json",
+                success: function (response) {
+                    $(".diciplines tbody").html(response[0]);
+                    $(".edit-btn").click(function (e) { 
+                        e.preventDefault();
+                        var file = $(this).attr("file");
+                        
+                        var type = file.split("_")[2];
+                        var date = file.split("_")[1];
+                        var department = type.replace(".json", "");
+
+                        location.href = `/admin/lessons/edit/${date}/${department}`;
+                    });
+
+                    $(".professional-btn").click(function (e) { 
+                        e.preventDefault();
+                        var file = $(this).attr("file");
+                        
+                        var type = file.split("_")[2];
+                        var date = file.split("_")[1];
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/lessons/preview",
+                            data: {
+                                type: $("select[name='load-type']").val(),
+                                date: date
+                            },
+                            dataType: "text",
+                            success: function (response) {
+                                $(".lessons").removeClass("empty");
+                                $(".lessons").html(response);
+                                success("Завантажено розклад за " + date)
+                                if($(".lessons").find(".warning").length != 0) {
+                                    $(".lessons").addClass("empty")
+                                }
+                            }
+                        });
+                    });
+                    renderPaginator(response[1], response[2]);
+                }
+            });
+        }
+        function renderPaginator(currentPage, totalPages) {
+            $(".paginator").empty();
+
+            $(".paginator").append(
+                `<button class="btn paginator-btn" page="${currentPage - 1}" ${currentPage > 1 ? '' : 'disabled'}>&lt;</button>`
+            );
+
+            for (let index = 1; index <= totalPages; index++) {
+                const buttonClass = (currentPage == index) ? "btn paginator-btn active" : "btn paginator-btn";
+                $(".paginator").append(
+                    `<button class="${buttonClass}" page="${index}">${index}</button>`
+                );
+            }
+
+            // Add right arrow button
+            $(".paginator").append(
+                `<button class="btn paginator-btn" page="${currentPage + 1}" ${currentPage < totalPages ? '' : 'disabled'}>&gt;</button>`
+            );
+        }
+        $(document).on("click", ".paginator-btn", function (e) {
+            e.preventDefault();
+            loadData($(this).attr("page"));
+        });
+
+        loadData(1);
+    });
+</script>
+</body>
+</html>

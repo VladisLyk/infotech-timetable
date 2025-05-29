@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <style>
+        .results {
+            background-color: #2a2a57;
+            width: 100%;
+        }
+        .teach-btn {
+            outline: none;
+            border: none;
+            width: 100%;
+            color: white;
+            text-align: start;
+            background-color: #34346d;
+            transition: all 0.3s ease;
+            padding: 10px;
+        }
+        .teach-btn:hover {
+            background-color: #414189;
+        }
+    </style>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+    <div class="page">
+        <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+        <div class="instruments d-flex ">
+            <button class="inst-btn save locked"><i class="fas fa-save"></i>Завантажити</button>
+            <button class="inst-btn remove locked"><i class="fas fa-trash"></i>Видалити</button>
+        </div>
+        <div class="statistic">    <div class="modal active" name="load-report">
+            <div class="modal-body">
+                <div class="modal-head">
+                    <i class="fas fa-save"></i>
+                    Створити звіт
+                </div>
+                <div class="modal-content">
+                    <div class="input-label">
+                        <label for="teacher-name" class="d-block">Починайте вводити ініціали</label>
+                        <input type="text" name="teacher-name" class="input" placeholder="ПІБ викладача">
+                        <div style="width: 100%; position: relative;">
+                            <div class="results2" style="position: absolute; display: block;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+                        <button class="default-btn d-flex justify-content-between align-center load-report"><i class="fas fa-check" style="padding-right: 10px;" ></i>Завантажити</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-blur"></div>
+        </div>
+            <div class="results table table-container" >
+                <table class="report-table" style="height: 100%;">
+                    <thead>
+                        <tr>
+                            <th colspan="17" class="teacher-th" style="font-weight: 300;">
+                                <div class="info teacher d-flex align-center">
+                                    <p class="title" style="padding-right: 20px;">Викладач:</p>
+                                    <h4 class="teacher">Запорожець Тетяна Василівна</h4>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="spans date"><p>Дата</p></th>
+                            <th class="spans time"><p>Час</p></th>
+                            <th class="spans group"><p>Академічна група</p></th>
+                            <th class="spans"><p>Назва Дисципліни</p></th>
+                            <th class="spans"><p>Форма навчання</p></th>
+                            <th class="lection">Лекція</th>
+                            <th class="practice">Практика</th>
+                            <th class="laboratory">Лабораторне заняття</th>
+                            <th class="consultation">Консультація</th>
+                            <th class="examination-consultation">Екзаменаційна консультація</th>
+                            <th class="check-control-works">Перевірка контр. робіт, РГР</th>
+                            <th class="course-works">Курсові роботи</th>
+                            <th class="examination">Екзамени</th>
+                            <th class="practice-guidance">Керівництво практикою</th>
+                            <th class="state-examination">Державні іспити</th>
+                            <th class="qualification-works">Кваліфікаційні роботи</th>
+                            <th class="guidance-graduate-students">Керівництво аспірантами</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="action">
+    
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/popup/popup.js"></script>
+    <script src="/modal/modal.js"></script>
+    <script src="/navbar/navbar.js"></script>
+    <script src="/pages/js/page.js"></script>
+    <script src="/date-picker/date.js"></script>
+    <script src="/dropdown/dropdown.js"></script>
+    <script>
+        $(document).on('click', '.teach-btn', function (e) {
+            e.preventDefault();
+            $("input[name='teacher-name']").val($(this).text());
+            $(".results2").hide();
+        });
+        $(document).ready(function () {
+            $(".results2").hide();
+        });
+        $("input[name='teacher-name']").keyup(function (e) { 
+            if($(this).val().length == 0) {
+                $(".results2").hide();
+            } else {
+                $(".results2").show();
+                $.ajax({
+                    type: "POST",
+                    url: "/api/diciplines/find",
+                    data: {
+                        name: $(this).val()
+                    },
+                    dataType: "JSON",
+                    success: function (response) {
+                        $(".results2").html(response.data);
+                    }
+                });
+            }
+        });
+
+// Отримуємо посилання на кнопку
+
+    $(".remove").click(function (e) { 
+        $("tbody").empty();
+        openModal("load-report");
+     });
+
+    class csvExport {
+    constructor(table, header = true) {
+        this.table = table;
+        this.rows = Array.from(table.querySelectorAll("tr"));
+        if (!header && this.rows[0].querySelectorAll("th").length) {
+        this.rows.shift();
+        }
+        // console.log(this.rows);
+        // console.log(this._longestRow());
+    }
+
+    exportCsv() {
+        const lines = [];
+        const ncols = this._longestRow();
+        for (const row of this.rows) {
+        let line = "";
+        for (let i = 0; i < ncols; i++) {
+            if (row.children[i] !== undefined) {
+            line += csvExport.safeData(row.children[i]);
+            }
+            line += i !== ncols - 1 ? "," : "";
+        }
+        lines.push(line);
+        }
+        //console.log(lines);
+        return lines.join("\n");
+    }
+    _longestRow() {
+        return this.rows.reduce((length, row) => (row.childElementCount > length ? row.childElementCount : length), 0);
+    }
+    static safeData(td) {
+        let data = td.textContent;
+        //Replace all double quote to two double quotes
+        data = data.replace(/"/g, `""`);
+        //Replace , and \n to double quotes
+        data = /[",\n"]/.test(data) ? `"${data}"` : data;
+        return data;
+    }
+    }
+
+    const btnExport = document.querySelector(".save");
+    const tableElement = document.querySelector("table");
+
+    btnExport.addEventListener("click", () => {
+    const obj = new csvExport(tableElement);
+    const csvData = obj.exportCsv();
+    const blob = new Blob([csvData], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "report.csv";
+    a.click();
+
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+    }, 500);
+    });
+
+    $(".load-report").click(function (e) { 
+        e.preventDefault();
+        var teacher = $("input[name='teacher-name']").val();
+        $.ajax({
+            type: "POST",
+            url: "/api/reports/load",
+            data: {
+                teacher: teacher
+            },
+            dataType: "JSON",
+            success: function (response) {
+                if(response.status) {
+                $.each(response.data.lessons, function (indexInArray, info) { 
+                    $("h4.teacher").text(teacher);
+                    var date = info.date.split("-");
+                    var formatted_date = `${date[2]}.${date[1]}.${date[0]}`;
+                    var time = "";
+                    switch (parseInt(info.number_lesson)) {
+                        case 1:
+                            time = "8:00 - 9:20";
+                            break;
+                        case 2:
+                            time = "9:40 - 11:00";
+                            break;
+                        case 3:
+                            time = "11:20 - 12:40";
+                            break;
+                        case 4:
+                            time = "13:00 - 14:20";
+                            break;
+                        case 5:
+                            time = "14:40 - 16:00";
+                            break;
+                        case 6:
+                            time = "16:20 - 17:40";
+                            break;
+                    }
+
+                    var td = $("tbody").append(
+                        `
+                            <tr class="col">
+                            <td>${formatted_date}</td>
+                            <td>${time}</td>
+                            <td>${arabicToRoman(info.course)}: ${info.group}</td>
+                            <td>${info.dicipline}</td>
+                            <td>${info.form == "offline" ? "онлайн" : "в аудиторії"}</td>
+                            <td class="lection edit" contenteditable="true">${info.type == "lection" ? 1 : 0}</td>
+                            <td class="practice edit" contenteditable="true">${info.type == "practice" ? 1 : 0}</td>
+                            <td class="laboratory edit" contenteditable="true">${info.type == "laboratory" ? 1 : 0}</td>
+                            <td class="consultation edit" contenteditable="true">${info.type == "consultation" ? 1 : 0}</td>
+                            <td class="examination-consultation edit" contenteditable="true">${info.type == "examination-consultation" ? 1 : 0}</td>
+                            <td class="check-control-works edit" contenteditable="true">${info.type == "check-control-works" ? 1 : 0}</td>
+                            <td class="course-works edit" contenteditable="true">${info.type == "course-works" ? 1 : 0}</td>
+                            <td class="examination edit" contenteditable="true">${info.type == "examination" ? 1 : 0}</td>
+                            <td class="practice-guidance edit" contenteditable="true">${info.type == "practice-guidance" ? 1 : 0}</td>
+                            <td class="state-examination edit" contenteditable="true">${info.type == "state-examination" ? 1 : 0}</td>
+                            <td class="qualification-works edit" contenteditable="true">${info.type == "qualification-works" ? 1 : 0}</td>
+                            <td class="guidance-graduate-students edit" contenteditable="true">${info.type == "guidance-graduate-students" ? 1 : 0}</td>
+
+                        </tr>
+                            
+                            `
+                    );
+
+                    closeModalAll();
+                });
+
+                $(".report-table tbody").append(`
+                    
+                    <td colspan=5" class="highlight-column" style="text-align: end;">Всього:</td>
+                        <th class="lection-result highlight-column2 ">0</th>
+                        <th class="practice-result highlight-column2 ">0</th>
+                        <th class="laboratory-result highlight-column2 ">0</th>
+                        <th class="consultation-result highlight-column2 ">0</th>
+                        <th class="examination-consultation-result highlight-column2 ">0</th>
+                        <th class="check-control-works-result highlight-column2 ">0</th>
+                        <th class="course-works-result highlight-column2 ">0</th>
+                        <th class="examination-result highlight-column2 ">0</th>
+                        <th class="practice-guidance-result highlight-column2 ">0</th>
+                        <th class="state-examination-result highlight-column2 ">0</th>
+                        <th class="qualification-works-result highlight-column2 ">0</th>
+                        <th class="guidance-graduate-students-result highlight-column2 ">0</th>
+                    `);
+                    var trs = $('.report-table').find(".col");
+                    function sums() {
+                        var lection = calculate_form("lection");
+                        var practice = calculate_form("practice");
+                        var laboratory = calculate_form("laboratory");
+                        var consultation = calculate_form("consultation");
+                        var examination_consultation = calculate_form("examination-consultation");
+                        var check_control_works = calculate_form("check-control-works");
+                        var course_works = calculate_form("course-works");
+                        var examination = calculate_form("examination");
+                        var practice_guidance = calculate_form("practice-guidance");
+                        var state_examination = calculate_form("state-examination");
+                        var qualification_works = calculate_form("qualification-works");
+                        var guidance_graduate_students = calculate_form("guidance-graduate-students");
+
+                        $(".report-table th.lection-result").text(lection);
+                        $(".report-table th.practice-result").text(practice);
+                        $(".report-table th.laboratory-result").text(laboratory);
+                        $(".report-table th.consultation-result").text(consultation);
+                        $(".report-table th.examination-consultation-result").text(examination_consultation);
+                        $(".report-table th.check-control-works-result").text(check_control_works);
+                        $(".report-table th.course-works-result").text(course_works);
+                        $(".report-table th.examination-result").text(examination);
+                        $(".report-table th.practice-guidance-result").text(practice_guidance);
+                        $(".report-table th.state-examination-result").text(state_examination);
+                        $(".report-table th.qualification-works-result").text(qualification_works);
+                        $(".report-table th.guidance-graduate-students-result").text(guidance_graduate_students);
+                    }
+
+                    function calculate_form(type) {
+                        var sum = 0;
+                        var elements = trs.find("." + type);
+
+                        if(elements.length != 0) {
+                            elements.each(function (index, element) {
+                                sum += parseInt($(this).text());    
+                            });
+                        }
+
+                        return sum;
+                    }
+                    $('.col .edit').on('input', function (e) {
+                        var inputValue = $(this).text();
+
+                        // Перевірка, чи введене значення - це не цифри та не порожній рядок
+                        if (!/^\d+$/.test(inputValue) || inputValue.trim() === '') {
+                            $(this).addClass('invalid-input');
+                        } else {
+                            $(this).removeClass('invalid-input');
+                        }
+
+                        sums();
+                    });
+
+                    // Заборона натискання клавіші Enter
+                    $('.col .edit').on('keydown', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                        }
+                    });
+
+                    sums();
+
+                        // <tr class="col">
+                        //     <td>11.11.11</td>
+                        //     <td>13:00 - 14:20</td>
+                        //     <td>105, 104</td>
+                        //     <td>Вища математика</td>
+                        //     <td>в аудиторії</td>
+                        //     <td class="lection edit" contenteditable="true">10</td>
+                        //     <td class="practice edit" contenteditable="true">20</td>
+                        //     <td class="laboratory edit" contenteditable="true">12</td>
+                        //     <td class="consultation edit" contenteditable="true">0</td>
+                        //     <td class="examination-consultation edit" contenteditable="true">0</td>
+                        //     <td class="check-control-works edit" contenteditable="true">0</td>
+                        //     <td class="course-works edit" contenteditable="true">0</td>
+                        //     <td class="examination edit" contenteditable="true">0</td>
+                        //     <td class="practice-guidance edit" contenteditable="true">2</td>
+                        //     <td class="state-examination edit" contenteditable="true">0</td>
+                        //     <td class="qualification-works edit" contenteditable="true">0</td>
+                        //     <td class="guidance-graduate-students edit" contenteditable="true">0</td>
+                        // </tr>
+                }
+            }
+        });
+    });
+    function arabicToRoman(arabic) {
+    if (arabic < 1 || arabic > 3999) {
+        return "Недопустимое значение. Введите число от 1 до 3999.";
+    }
+
+    const romanNumerals = {
+        1000: 'M',
+        900: 'CM',
+        500: 'D',
+        400: 'CD',
+        100: 'C',
+        90: 'XC',
+        50: 'L',
+        40: 'XL',
+        10: 'X',
+        9: 'IX',
+        5: 'V',
+        4: 'IV',
+        1: 'I'
+    };
+
+    let result = '';
+
+    for (let value in romanNumerals) {
+        while (arabic >= value) {
+            result += romanNumerals[value];
+            arabic -= value;
+        }
+    }
+
+    return result;
+}
+
+    </script>
+</body>
+</html>

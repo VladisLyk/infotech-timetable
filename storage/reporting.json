@@ -1,0 +1,323 @@
+{
+  "Сердюк Зоя Олексіївна": {
+    "lessons": [
+      {
+        "date": "2023-12-19",
+        "number_lesson": "1",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Математичний аналіз",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Математичний аналіз",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "1",
+        "group": "Б",
+        "dicipline": "Математичний аналіз",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "1",
+        "group": "Ф",
+        "dicipline": "Математичний аналіз",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "Б",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "Ф",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "4",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Вища математика",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "4",
+        "course": "1",
+        "group": "Б",
+        "dicipline": "Вища математика",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "4",
+        "course": "1",
+        "group": "Ф",
+        "dicipline": "Вища математика",
+        "type": "practice",
+        "form": "offline"
+      }
+    ]
+  },
+  "Пасічний Микола Олександрович": {
+    "lessons": []
+  },
+  "Татарчук Євгній Вікторович": {
+    "lessons": [
+      {
+        "date": "2023-12-19",
+        "number_lesson": "3",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Молекулярна фізика",
+        "type": "laboratory",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "4",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Молекулярна фізика",
+        "type": "laboratory",
+        "form": "offline"
+      }
+    ]
+  },
+  "Корнієнко Семен Вікторович": {
+    "lessons": [
+      {
+        "date": "2023-12-20",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "Ф",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      }
+    ]
+  },
+  "Запорожець Тетяна Василівна": {
+    "lessons": [
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "Ф",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "3",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "1",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "1",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "1",
+        "course": "2",
+        "group": "Ф",
+        "dicipline": "Алгоритмізація та програмування",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "2",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Вступ до фаху",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "2",
+        "course": "1",
+        "group": "Ф",
+        "dicipline": "Вступ до фаху",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "А",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "Б",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "1",
+        "group": "Ф",
+        "dicipline": "Вища математика",
+        "type": "lection",
+        "form": "offline"
+      }
+    ]
+  },
+  "Кулик Людмила Олександрівна": {
+    "lessons": [
+      {
+        "date": "2023-12-19",
+        "number_lesson": "2",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Молекулярна фізика",
+        "type": "laboratory",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Молекулярна фізика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Молекулярна фізика",
+        "type": "lection",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-20",
+        "number_lesson": "3",
+        "course": "2",
+        "group": "Ф",
+        "dicipline": "Молекулярна фізика",
+        "type": "lection",
+        "form": "offline"
+      }
+    ]
+  },
+  "П'янзін Сергій Дмитрович": {
+    "lessons": [
+      {
+        "date": "2023-12-19",
+        "number_lesson": "4",
+        "course": "2",
+        "group": "А",
+        "dicipline": "Філософія",
+        "type": "practice",
+        "form": "offline"
+      },
+      {
+        "date": "2023-12-19",
+        "number_lesson": "5",
+        "course": "2",
+        "group": "Б",
+        "dicipline": "Філософія",
+        "type": "practice",
+        "form": "offline"
+      }
+    ]
+  },
+  "Пошункова Ольга Анатоліївна": {
+    "lessons": []
+  },
+  "Данилюк С С": {
+    "lessons": []
+  }
+}

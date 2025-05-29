@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інфотех - <%= title %></title>
+
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/navbar/navbar.css">
+    <link rel="stylesheet" href="/pages/css/page.css">
+    <link rel="stylesheet" href="/modal/modal.css">
+    <link rel="stylesheet" href="/table/table.css">
+    <link rel="stylesheet" href="/dropdown/dropdown.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<%- include('../assets/navbar/navbar.ejs'); -%>
+<div class="page">
+    <%- include('../assets/breadcrumbs/breadcrumbs.ejs'); -%>
+    <div class="instruments">
+        <button class="inst-btn remove-action"><i class="fas fa-trash"></i>Видалити</button>
+        <button class="inst-btn modal-open" name="add-teacher"><i class="fas fa-plus-square"></i>Додати</button>
+    </div>
+<div class="table">
+    <table>
+        <thead>
+            <tr class="columns">
+                <th>ID</th>
+                <th>ПІБ</th>
+                <th>Електронна пошта</th>
+              </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+</div>
+<div class="actions">
+    <button class="remove-selected modal-open" name="remove-selected"><i class="fas fa-trash"></i><p>Видалити обране</p></button>
+    <div class="paginator">
+    </div>
+</div>
+</div>
+<div class="modal" name="add-teacher">
+<div class="modal-body">
+    <div class="modal-head">
+        <i class="fas fa-plus"></i>
+        Додати викладача
+    </div>
+    <div class="modal-content">
+        <div class="input-label">
+            <label for="firstname" class="d-block">Введіть Ім'я</label>
+            <input type="text" name="firstname" class="input" placeholder="Ім'я">
+        </div>
+        <div class="input-label">
+            <label for="lastname" class="d-block">Введіть Прізвище</label>
+            <input type="text" name="lastname" class="input" placeholder="Прізвище">
+        </div>
+        <div class="input-label">
+            <label for="fathername" class="d-block">Введіть Побатькові</label>
+            <input type="text" name="fathername" class="input" placeholder="Побатькові">
+        </div>
+        <div class="input-label">
+            <label for="email" class="d-block">Введіть елект. пошту</label>
+            <input type="email" name="email" class="input" placeholder="Електронна пошта">
+        </div>
+        <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+            <button class="default-btn d-flex justify-content-between align-center addTeacher"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+            <button class="default-btn modal-close"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+        </div>
+    </div>
+</div>
+<div class="modal-blur"></div>
+</div>
+<div class="modal" name="remove-selected">
+<div class="modal-body">
+    <div class="modal-head">
+        <i class="fas fa-exclamation-triangle"></i>
+        Підтвердження дії
+    </div>
+    <div class="modal-content" style="padding: 30px">
+        <p>Ви збираєтесь видалити наступне:</p>
+        <div class="table-2">
+            <table>
+                <thead>
+                    <tr class="columns">
+                        <th>ID</th>
+                        <th>ПІБ</th>
+                        <th>Електронна пошта</th>
+                      </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between" style="padding-top: 20px; padding-right: 50px; padding-left: 50px; flex-wrap: wrap;">
+            <button class="default-btn d-flex justify-content-between align-center removeTeacher"><i class="fas fa-check" style="padding-right: 10px;" ></i>Підтвердити</button>
+            <button class="default-btn modal-close" onclick="closeModal('remove-selected')"><i class="fas fa-times" style="padding-right: 10px;" ></i>Закрити</button>
+        </div>
+    </div>
+</div>
+<div class="modal-blur"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/popup/popup.js"></script>
+<script src="/modal/modal.js"></script>
+<script src="/navbar/navbar.js"></script>
+<script src="/pages/js/page.js"></script>
+<script>
+    function loadData(page) {
+        $.ajax({
+            type: "POST",
+            url: "/api/teachers/prepared",
+            data: {
+                page: page,
+            },
+            dataType: "json",
+            success: function (response) {
+                $("tbody").html(response[0]);
+                renderPaginator(response[1], response[2]);
+            }
+        });
+    }
+    $(document).ready(function () {
+        loadData(1);
+        $(document).on("click", ".row", function (e) {
+            e.preventDefault();
+            if($(".table").hasClass("removeble")) {
+                $(this).toggleClass("active")
+            }
+        });
+        var remove_id = [];
+        $(document).on("click", ".remove-selected", function (e) {
+            e.preventDefault();
+            $(".modal[name='remove-selected'] > .modal-body > .modal-content > .table-2 > table > tbody").empty()
+            remove_id = [];
+
+            $(".row").each(function (index, element) {
+                if($(this).hasClass("active")) {
+                    if(remove_id.length == 0) {
+                        remove_id[remove_id.length] = $(this).attr("id");
+                    } else {
+                        remove_id[remove_id.length + 1] = $(this).attr("id");
+                    }
+                    $(".modal[name='remove-selected'] > .modal-body > .modal-content > .table-2 > table > tbody").append($(this).clone().removeClass("active"))
+                }
+            });
+
+        });
+        $(".removeTeacher").click(function (e) { 
+            e.preventDefault();
+            if(remove_id.length != 0) {
+                $.ajax({
+                type: "POST",
+                url: "/api/teachers/remove",
+                data: {
+                    removeList: remove_id.join(";")
+                },
+                dataType: "json",
+                success: function (response) {
+                    $(".edit-action").removeClass("active");
+                    $(".table").removeClass("editable")
+                    $(".remove-action").toggleClass('active');
+                    $(".table").toggleClass("removeble")
+                    $(".row").removeClass("active")
+                    $(".remove-selected").toggleClass("active")
+                    if(response.reload) {
+                        loadData(1);
+                    } else {
+                        warning("Виникла помилка під час видалення")
+                    }
+
+                    $(".modal[name='remove-selected']").removeClass('active');
+                }
+            });
+            }
+        });
+    });
+    $(document).on("click", ".paginator-btn", function (e) {
+        e.preventDefault();
+        loadData($(this).attr("page"));
+    });
+    function renderPaginator(currentPage, totalPages) {
+        $(".paginator").empty();
+
+        $(".paginator").append(
+            `<button class="btn paginator-btn" page="${currentPage - 1}" ${currentPage > 1 ? '' : 'disabled'}>&lt;</button>`
+        );
+
+        for (let index = 1; index <= totalPages; index++) {
+            const buttonClass = (currentPage == index) ? "btn paginator-btn active" : "btn paginator-btn";
+            $(".paginator").append(
+                `<button class="${buttonClass}" page="${index}">${index}</button>`
+            );
+        }
+
+        // Add right arrow button
+        $(".paginator").append(
+            `<button class="btn paginator-btn" page="${currentPage + 1}" ${currentPage < totalPages ? '' : 'disabled'}>&gt;</button>`
+        );
+    }
+    function isValidName(name) {
+        var regex = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ']+([-']?[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*$/;
+        return regex.test(name);
+    }
+    $(".addTeacher").click(function (e) { 
+        e.preventDefault();
+
+        var email = $("input[name='email']").val().trim();
+        var fathername = $("input[name='fathername']").val().trim();
+        var lastname = $("input[name='lastname']").val().trim();
+        var firstname = $("input[name='firstname']").val().trim();
+
+        if (!isValidName(firstname) || !isValidName(lastname) || !isValidName(fathername)) {
+            warning("Недопустимі символи у полях з іменем. ");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/api/teachers/add",
+            data: {
+                email: email,
+                firstName: firstname,
+                lastName: lastname,
+                surName: fathername
+            },
+            dataType: "json",
+            success: function (response) {
+                if(response.reload) {
+                    success(`Викладача ${firstname} було додано!`)
+                    closeModalAll();
+                    loadData(1);
+                } else {
+                    warning(response.error_message);
+                }
+            }
+        });
+    });
+</script>

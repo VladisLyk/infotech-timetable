@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:wght@100;300;700&display=swap');
+body {
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+    justify-content: space-between;
+    font-family: "Roboto";
+    font-weight: 300;
+    background-color: #31315E;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:wght@100;300;700&display=swap');
+.lessons {
+    overflow-x: scroll;
+    display: flex;
+}
+table td{
+    white-space: nowrap;
+}
+table.lessons-table table {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+    right: 0;
+}
+table.lessons-table th {
+    padding: 20px;
+}
+table.lessons-table th:not(:first-child) {
+    border-left: 1px solid;
+}
+table.lessons-table td:not(:first-child):empty {
+    min-width: 160px;
+}
+table.lessons-table td:not(:first-child) {
+    max-width: 600px;
+    padding: 10px;
+    border-left: 1px solid;
+    border-top: 1px solid;
+}
+table.lessons-table tr:is(.course) th {
+    background-color: #28284e;
+}
+table.lessons-table tr:is(.groups) th {
+    background-color: #333365;
+}
+table.lessons-table tr:is(.subgroups) th:nth-child(even) {
+    background-color: #1c1c38;
+}
+table.lessons-table tr:is(.subgroups) th:nth-child(odd):not(:first-child) {
+    background-color: rgb(42, 42, 80);
+}
+table.lessons-table tr:is(.lesson) td:nth-child(even) {
+    background-color: #1c1c38;
+}
+table.lessons-table tr:is(.lesson) td:nth-child(odd):not(:first-child) {
+    background-color: rgb(42, 42, 80);
+}
+
+table.lessons-table th:first-child, td:is(.number-lesson) {
+    background-color: rgb(47, 47, 78)
+}
+
+table.lessons-table td:is(.number-lesson) {
+    border-top: 1px solid;
+    position: sticky;
+    left: 0;
+}
+
+.sticky {
+    position: sticky;
+    left: 0;
+}
+.sticky-top {
+    position: sticky;
+    top: 0;
+}
+table.lessons-table tr:is(.lesson).active td:is(.number-lesson){
+    background-color: rgb(53, 53, 164)
+}
+table.lessons-table tr:is(.lesson) td:is(.number-lesson){
+    padding: 3.2em 2em;
+}
+table.td {
+    text-align: start;
+}
+table.lessons-table tr:is(.lesson) td:is(.shared), td.number-lesson {
+    text-align: center;
+}
+table.lessons-table tr:is(.lesson) td:not(.number-lesson){
+    vertical-align:top;
+}
+.button-container {
+    text-align: start;
+    z-index: 20;
+}
+.move p,
+.move h4 {
+    margin: 0;
+}
+
+table.lessons-table tr:is(.lesson) td:not(.number-lesson).selected, table.lessons-table tr:is(.lesson) td:not(.number-lesson).selected:hover {
+    background-color: rgba(53, 164, 71, 0.068)
+    
+}
+table.lessons-table tr:is(.lesson) td:not(.number-lesson):hover {
+    background-color: rgba(53, 164, 71, 0.018)
+}
+/* Показати .controls у першому елементі .move */
+table.lessons-table tr.lesson td:not(.number-lesson) .move:first-child .controls .cell {
+    display: block;
+}
+table.lessons-table tr.lesson td:not(.number-lesson) .move:not(:first-child) {
+    height: 0;
+    visibility: hidden;
+    display: none;
+}
+table.lessons-table tr.lesson td:not(.number-lesson):hover .move:not(:first-child) {
+    visibility: visible;
+    height: auto;
+    display: block;
+}
+table.lessons-table tr.lesson td:not(.number-lesson):hover .counter {
+    display: none;
+}
+/* Сховати .controls у наступних елементах .move */
+table.lessons-table tr.lesson td:not(.number-lesson) .move:not(:first-child) .controls .cell {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.move {
+    font-size: 0.9em;;
+    max-height: 200px;
+}
+
+.border {
+    transition: filter 0.3s; /* Задаємо тривалість анімації */
+}
+.border.blur {
+    filter: blur(3px);
+}
+
+.move {
+    padding: 5px;
+    margin: 10px;
+    /* line-height: 3px; */
+    color: white;
+    text-align: center;
+}
+/* tr.course  th{
+    text-align: start;
+    position: sticky;
+} */
+.border table {
+    border-collapse: collapse; /* Для корректного отображения границ ячеек */
+}
+
+@media screen and (max-width: 568px){
+    table.lessons-table tr:is(.lesson) td:is(.number-lesson) {
+        padding: 3.2em 1em;
+    }
+}

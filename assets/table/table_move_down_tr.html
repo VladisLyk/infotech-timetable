@@ -1,0 +1,299 @@
+
+<table class="lessons-table draggable-table">
+        <thead>
+            <tr class="course">
+                <th colspan="7">1 КУРС</th>
+                <th colspan="7">2 КУРС</th>
+            </tr>
+            <tr class="groups">
+                <th class="sticky"></th>
+                <th colspan="2">А</th>
+                <th colspan="2">Б</th>
+                <th colspan="2">Ф</th>
+                <th colspan="2">А</th>
+                <th colspan="2">Б</th>
+                <th colspan="2">Ф</th>
+            </tr>
+            <tr class="subgroups">
+                <th class="sticky"></th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+                <th>1 ПІДГРУПА</th>
+                <th>2 ПІДГРУПА</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="lesson">
+                <td class="number-lesson">I</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="lesson">
+                <td class="number-lesson">II</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+             </tr>
+            <tr class="lesson">
+                <td class="number-lesson">III</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+                <tr class="lesson">
+                <td class="number-lesson">IV</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+                <tr class="lesson">
+                <td class="number-lesson">V</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="lesson">
+                <td class="number-lesson">VI</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+</table>
+<script>
+    $(function() {
+        $(document).on("click", ".add", function(e){
+            e.preventDefault();
+
+            var td = $(this).closest("td");
+            td.addClass("shared")
+            var indexTd = getCountColumn(td);
+            var currentColspan = parseInt(td.attr("colspan")) || 1;
+            var maxColspan = td.parent().find("td").length;
+            if(td.attr("next-colspan") == undefined) {
+                td.attr("next-colspan", 2);
+            }
+
+            var nextColspan = parseInt(td.attr("next-colspan"));
+            if (indexTd < (maxColspan-1)) {
+                td.attr("colspan", nextColspan);
+                td.attr("next-colspan", nextColspan + 1);
+            }
+
+            var nextTd = td.next("td");
+            for (let index = 0; index < currentColspan; index++) {
+                var next_nextTd = nextTd.next("td");
+                while (true) {
+                    if (next_nextTd.length == 0) {
+                        var nextTr = nextTd.parent().next("tr");
+                        if (nextTr.length == 0) {
+                            break;
+                        } else {
+                            next_nextTd = nextTr.find("td").first();
+                        }
+                    }
+
+                    if (next_nextTd.hasEmpty()) {
+                        if (next_nextTd.hasClass("d-none")) {
+                            next_nextTd.removeClass("d-none");
+                        }
+                        next_nextTd.attr("next-colspan", nextTd.attr("next-colspan"))
+                        next_nextTd.attr("colspan", nextTd.attr("colspan"))
+                        next_nextTd.html(nextTd.html());
+
+                        for (let i = 0; i < parseInt(next_nextTd.attr("colspan")); i++) {
+                            next_nextTd = next_nextTd.next("td");
+                            if (next_nextTd.length > 0) {
+                                next_nextTd.addClass("d-none");
+                            }
+                        }
+
+                        nextTd.html('').addClass("d-none");
+                        break;
+                    } else {
+                        next_nextTd = next_nextTd.next("td");
+                    }
+                }
+                nextTd = nextTd.next("td");
+            }
+
+
+        });
+        $(document).on("click", ".remove", function(e){
+            e.preventDefault();
+
+            var td = $(this).closest("td");
+            var currentColspan = parseInt(td.attr("colspan")) || 1;
+
+            if (currentColspan > 1) {
+                td.attr("colspan", currentColspan - 1);
+                if(currentColspan > 2) {
+                    td.attr("next-colspan", currentColspan - 1);
+                } else {
+                    td.removeClass("shared");
+                    td.attr("next-colspan", 2);
+                }
+
+                var hided_total = td.nextAll("td.d-none");
+                var hided_last_elem = hided_total.eq(currentColspan - 2);
+
+                if (hided_last_elem.length > 0) {
+                    $(hided_last_elem).removeClass("d-none");
+                }
+            }
+        });
+
+
+
+
+        function getCountColumn(column) {
+            var tds = column.parent().find("td");
+
+            for (let index = 0; index < tds.length; index++) {
+                var currentTd = $(tds[index]);
+
+                if (currentTd.is(column)) {
+                    return index;
+                }
+            }
+        }
+        $(".draggable-table tbody").sortable({
+        connectWith: ".draggable-table tbody tr td:not(.number-lesson)",
+        cursor: "move",
+        helper: "clone",
+        start: function(event, ui) {
+            ui.helper.addClass("dragging");
+        },
+        items: "tr:not(.lesson)",
+        });
+
+    
+      $(".draggable-table tbody tr td").sortable({
+        connectWith: ".draggable-table tbody tr td:not(.number-lesson)",
+        start: function(event, ui) {
+          ui.helper.addClass("dragging");
+        },
+        beforeStop: function(event, ui) {
+          ui.item.removeClass("dragging");
+        },
+        receive: function(event, ui) {
+          var targetCell = $(event.target);
+          if (targetCell.children().length > 1 || ui.sender.is(findTableTd(targetCell))) {
+            ui.sender.sortable('cancel');
+          } else {
+            replaceItem(targetCell, ui.item.clone(), ui.sender);
+          }
+        },
+        over: function(event, ui) {
+            var targetCell = $(event.target);
+            if (targetCell.children().length > 1) {
+                $(event.target).css("background-color", "rgba(164, 53, 53, 0.579);")
+            } else {
+                $(event.target).css("background-color", "rgba(53, 164, 70, 0.579)")
+            }
+            
+        },
+        out: function(event, ui) {
+            $(event.target).attr("style", "")
+        },
+        items: "td > *[class=move]",
+      });
+    
+    function replaceItem(rootelem, elem, senderelem) {
+        senderelem.append(elem);
+
+        var d_name = elem.attr("dname")
+        var d_teach = elem.attr("dteach")
+        rootelem.html(`
+        <div class='move d-flex justify-content-between align-center'>
+            <div class="">
+                <button class='default-btn add' onclick=""><i class="fas fa-plus"></i></button><br>
+                <button class='remove default-btn'><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="info">
+                <h4>${d_name}</h4>
+                <p>${d_teach}</p>
+            </div>
+        </div>`);
+        loadact();
+    }
+
+    function findTableTd(tdElement) {
+        if(tdElement.is("td")) {
+            var table = tdElement;
+            while(!table.is("tbody")) {
+                table = table.parent();
+            }
+
+            return table;
+        } else {
+            return null;
+        }
+    }
+    });
+    </script>
+    
+  
